@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Modal Window Using Pure JavaScript</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .modal-content {
+    animation: animatezoom 0.6s;
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+.modal-header {
+    background-color: #007bff;
+    color: #fff;
+    border-bottom: none;
+}
+
+.modal-body p {
+    margin-bottom: 1rem;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+    </style>
+</head>
+<body>
+    <h1 class="btn btn-success" style="text-align: center; align-items: center; justify-content: center; display: flex;">Developer Super League TASK Completed By Team Desi Developers</h1>
+    <div  class="container">
+    <button  id="openModalBtn" class="btn btn-primary">Open Modal</button>
+</div>
+    <div id="modal" class="modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <span id="closeModalBtn" class="close">&times;</span>
+                <div class="modal-header">
+                    <h5 class="modal-title">Header</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, corporis aliquam necessitatibus tempore animi sint, ullam aspernatur eligendi modi nostrum veniam maxime dolores nihil iste eius autem ipsam nam illo.</p>
+                    <button id="closeModalBtnBottom" class="btn btn-danger">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+     // Get the modal element
+var modal = document.getElementById("modal");
+
+// Get the button that opens the modal
+var openModalBtn = document.getElementById("openModalBtn");
+
+// Get the close button elements
+var closeModalBtn = document.getElementById("closeModalBtn");
+var closeModalBtnBottom = document.getElementById("closeModalBtnBottom");
+
+// Function to open the modal
+function openModal() {
+    modal.style.display = "block";
+}
+
+// Function to close the modal
+function closeModal() {
+    modal.style.display = "none";
+}
+
+// When the user clicks on the button, open the modal
+openModalBtn.onclick = openModal;
+
+// When the user clicks on the close button in the header, close the modal
+closeModalBtn.onclick = closeModal;
+
+// When the user clicks on the close button at the bottom, close the modal
+closeModalBtnBottom.onclick = closeModal;
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+
+
+    </script>
+</body>
+</html>
